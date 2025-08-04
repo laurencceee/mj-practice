@@ -1,0 +1,335 @@
+/* Reset & Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barbie Doll', cursive;
+  background: linear-gradient(to bottom right, #ffc1e3, #ffffff);
+  overflow-x: hidden;
+  color: #8c1a5d;
+}
+
+/* Sparkle Background */
+.sparkle-bg::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.2) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px);
+  background-size: 80px 80px;
+  z-index: 0;
+  pointer-events: none;
+  animation: sparkleMove 10s linear infinite;
+}
+
+@keyframes sparkleMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(100px, 100px); }
+}
+
+/* Entry Container */
+.container {
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+}
+
+/* Pin */
+.pin {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #ff69b4, #d63384);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.title {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+  margin-bottom: 20px;
+}
+
+/* ID Card */
+.id-card {
+  max-width: 90%;
+  width: 320px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.virtual-id {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: all 1s ease-in-out;
+}
+
+.virtual-id.animate-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* About Me Button */
+.about-me-btn {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: rgba(255, 105, 180, 0.7);
+  padding: 10px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.about-me-btn:hover {
+  background-color: #ff69b4;
+  transform: scale(1.05);
+}
+
+/* About Me Section */
+.about-me {
+  background: linear-gradient(to bottom right, #ffc1e3, #ffffff);
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title */
+.about-title {
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  text-shadow: 0 0 5px #ff69b4, 0 0 15px #ff69b4;
+}
+
+/* Typing container */
+.typing-container {
+  background: #fff0f6;
+  border-radius: 30px;
+  padding: 30px 40px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow:
+    0 4px 15px rgba(255, 105, 180, 0.3),
+    inset 0 0 20px #ffc0dd;
+  position: relative;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  font-weight: 600;
+  color: #8c1a5d;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: left;
+}
+
+/* Cursor */
+.typed-text::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 5px;
+  animation: blink 1s steps(1) infinite;
+  color: #d63384;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2.5rem;
+  }
+  .typing-container {
+    font-size: 1.1rem;
+  }
+}
+.resume-buttons {
+  padding-bottom: 50px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+  color: white;
+  background: linear-gradient(to right, #ff92c2, #ffaad9);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.download-btn {
+  background: linear-gradient(to right, #ff75b5, #ffa0d9);
+}
+
+.view-btn {
+  background: linear-gradient(to right, #fcb6de, #ffd1eb);
+  color: #8c1a5d;
+}
+
+/* media-appearance.css */
+.media-section {
+  padding: 3rem 2rem;
+  background: linear-gradient(to bottom right, #ffc1e3, #ffffff);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.media-section h2 {
+  font-family: 'Barbie Doll', cursive;
+  color: #8c1a5d;
+  text-align: center;
+  font-size:200%;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  animation: fadeIn 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+.media-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.media-tile {
+    
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--delay);
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.media-tile.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.media-tile img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.media-tile:hover img {
+  transform: scale(1.03);
+}
+
+.media-info {
+  padding: 1rem 1.2rem 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.media-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.media-info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+.media-tile a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .media-tile img {
+    height: 120px;
+  }
+  .media-info h3 {
+    font-size: 1rem;
+  }
+  .media-info p {
+    font-size: 0.85rem;
+  }
+}

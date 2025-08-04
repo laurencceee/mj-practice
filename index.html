@@ -2,302 +2,258 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mary Jorge Tagle - Profile</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MJ Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.cdnfonts.com/css/barbie-doll" rel="stylesheet">
   <style>
-    :root {
-      --background-light: #fafafa;
-      --background-dark: #1c1c1e;
-      --card-light: #ffffff;
-      --card-dark: #2c2c2e;
-      --text-light: #1d1d1f;
-      --text-dark: #f0f0f5;
-      --shadow-light: rgba(0, 0, 0, 0.1);
-      --shadow-dark: rgba(0, 0, 0, 0.6);
-      --accent-blue: #007aff;
-    }
-
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .scroll-container {
-      height: 100vh;
-      overflow-y: auto;
-      background: var(--background-light);
-      color: var(--text-light);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .scroll-container.dark {
-      background: var(--background-dark);
-      color: var(--text-dark);
-    }
-
-    .section {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1.5rem;
-      background: var(--card-light);
-      box-shadow: 0 30px 60px var(--shadow-light);
-      max-width: 720px;
-      margin: 0 auto;
-      border-radius: 20px;
-      transition: all 0.6s ease;
-    }
-
-    .scroll-container.dark .section {
-      background: var(--card-dark);
-      box-shadow: 0 30px 60px var(--shadow-dark);
-    }
-
-    .fade-in {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .fade-out {
-      opacity: 0;
-      transform: translateY(-40px);
-      pointer-events: none;
-    }
-
-    .profile-card {
-      text-align: center;
-      max-width: 360px;
-      width: 100%;
-    }
-
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 2rem;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15), inset 0 0 10px rgba(255,255,255,0.6);
-    }
-
-    .profile-name {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #000;
-    }
-
-    .profile-title {
-      font-size: 1.1rem;
-      font-style: italic;
-      color: #636366;
-      margin-bottom: 2rem;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 12px;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background-color: var(--accent-blue);
-      color: white;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--accent-blue);
-      border: 2px solid var(--accent-blue);
-    }
-
-    .btn-primary:hover, .btn-outline:hover {
-      box-shadow: 0 8px 30px rgba(0,122,255,0.4);
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-    }
-
-    .experience-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      width: 100%;
-    }
-
-    .experience-item {
-      background: #f5f5f7;
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
-      transition: transform 0.3s ease;
-    }
-
-    .experience-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0, 122, 255, 0.15);
-    }
-
-    .experience-date {
-      font-style: italic;
-      color: #8e8e93;
-      margin-bottom: 0.5rem;
-    }
-
-    .experience-role {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    .experience-company {
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 56px;
-      height: 56px;
-      background: var(--card-light);
-      border-radius: 50%;
-      border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-blue);
-      z-index: 1000;
-    }
-
-    .scroll-container.dark .dark-mode-toggle {
-      background: var(--card-dark);
-      color: #f5f5f7;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
-    }
-
-    .dark-mode-toggle .icon {
-      width: 24px;
-      height: 24px;
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
-  <div class="scroll-container" id="app">
-    <!-- Profile Section -->
-    <section class="section fade-in" id="section1">
-      <div class="profile-card">
-        <img src="mj.jpg" alt="Mary Jorge Tagle" class="profile-pic" />
-        <h1 class="profile-name">Mary Jorge Tagle</h1>
-        <p class="profile-title">
-          Bachelor of Arts in Communication -<br />
-          <em>Fresh Graduate</em>
-        </p>
-        <div class="btn-group">
-          <button id="viewResumeBtn" class="btn btn-primary">View Resume</button>
-          <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" download class="btn btn-outline">Download Resume</a>
-        </div>
-      </div>
-    </section>
+  <!-- Sparkle Background -->
+  <div class="sparkle-bg"></div>
 
-    <!-- Experience Section -->
-    <section class="section fade-out" id="section2">
-      <h2 class="section-title">Experience & Achievements</h2>
-      <div class="experience-list">
-        <div class="experience-item">
-          <div class="experience-date">2021 - 2025</div>
-          <h3 class="experience-role">Legislative Assistant</h3>
-          <p class="experience-company">Pasig City Hall</p>
-          <p>Supported legislative processes and community initiatives.</p>
-        </div>
-        <div class="experience-item">
-          <div class="experience-date">2024 - 2025</div>
-          <h3 class="experience-role">President</h3>
-          <p class="experience-company">Student Coordinating Body</p>
-          <p>Led student governance and campus initiatives.</p>
-        </div>
-        <div class="experience-item">
-          <div class="experience-date">2025</div>
-          <h3 class="experience-role">Communication Awards</h3>
-          <p class="experience-company">Pasig Catholic College</p>
-          <p>Recognized for excellence in communication and media.</p>
-        </div>
-        <div class="experience-item">
-          <div class="experience-date">2025</div>
-          <h3 class="experience-role">Best Student</h3>
-          <p class="experience-company">Pasig Catholic College</p>
-          <p>Honored for academic excellence and leadership.</p>
-        </div>
-        <div class="experience-item">
-          <div class="experience-date">2025</div>
-          <h3 class="experience-role">Top Overall</h3>
-          <p class="experience-company">Pasig Catholic College</p>
-          <p>Graduated top of class in Communication program.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dark Mode Toggle -->
-    <button class="dark-mode-toggle" id="toggleDarkBtn" aria-label="Toggle Dark Mode">
-      <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 24 24" stroke="none">
-        <path d="M21 12.79A9 9 0 0112.21 3a7 7 0 000 14 9 9 0 018.79-4.21z" />
-      </svg>
-    </button>
+  <!-- ENTRY SECTION -->
+  <div class="container" id="top">
+    <div class="pin"></div>
+    <h1 class="title">My Portfolio</h1>
+    <div class="id-card">
+      <img src="mj.png" alt="MJ Virtual ID" class="virtual-id">
+    </div>
+    <a href="#about-me" class="about-me-btn">About Me ↓</a>
   </div>
 
+  <!-- ABOUT ME SECTION -->
+  <section class="about-me" id="about-me">
+    <h2 class="about-title">About Me</h2>
+    <div class="typing-container">
+      <p id="typedText" class="typed-text"></p>
+    </div>
+  </section>
+<!-- media-appearance.html -->
+<section class="media-section">
+  <h2>Media Appearance (Hosting / Interviews / Reports)</h2>
+  <div class="media-gallery">
+    <div class="media-tile" style="--delay: 0s">
+      <a href="https://www.facebook.com/pccscbcollege/posts/pfbid02Mi9sRAT8rZzz9Y8TqANqqF2KdhR4hXbygT2MjYzFk5xUvCVp8nMeC33dWyjmZxwtl" target="_blank">
+        <img src="1.png" alt="College Night 2024" />
+        <div class="media-info">
+          <h3>College Night 2024</h3>
+          <p>Hosted event with photo coverage.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.1s">
+      <a href="https://www.facebook.com/gmapublicaffairs/posts/pfbid02RM9VZUxcdCaGeMMHT34cqCKgLGLQNWPGiM82DFCzMcAJBVzM7po895T5nEnFiUXTl" target="_blank">
+        <img src="2.png" alt="RESIBO OSAEC Campaign" />
+        <div class="media-info">
+          <h3>Host: RESIBO OSAEC Campaign</h3>
+          <p>Campaign against Online Sexual Abuse & Exploitation.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.2s">
+      <a href="https://www.facebook.com/abcjcouncil.pcc/posts/pfbid02SS41VTKuD3LMvZVkUbujWiXXdLW79krQcWSTyMZ8aHg8YLNCraFfqtKiFXXeXAFHl" target="_blank">
+        <img src="3.png" alt="Press Freedom Celebration 2022" />
+        <div class="media-info">
+          <h3>Press Freedom Celebration 2022</h3>
+          <p>Event Host | BACJ Department.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/pcccollegecrusader/videos/1611193512934764/" target="_blank">
+        <img src="4.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>Interview: PCC Intramurals 2025</h3>
+          <p>On-the-ground event coverage.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="media-section">
+  <h2>Documentaries/ promotional videos / Speeches</h2>
+  <div class="media-gallery">
+    <div class="media-tile" style="--delay: 0s">
+      <a href="https://www.facebook.com/PCC.CollegeDepartment/videos/1259768954912334" target="_blank">
+        <img src="5.png" alt="College Night 2024" />
+        <div class="media-info">
+          <h3>Promotional Video</h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.1s">
+      <a href="https://www.facebook.com/share/v/19LanYnaMz/" target="_blank">
+        <img src="6.png" alt="RESIBO OSAEC Campaign" />
+        <div class="media-info">
+          <h3>Documentary: ORIGINEM VITA (2019)</h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.2s">
+      <a href="https://drive.google.com/file/d/1j0VFY3iE8l4GfxE1YtjNJ7IHUccMmGMu/view?usp=sharing " target="_blank">
+        <img src="7.png" alt="Press Freedom Celebration 2022" />
+        <div class="media-info">
+          <h3>Short documentary</h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/watch/?v=382543553121397 " target="_blank">
+        <img src="8.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>Speech: RHS Teachers’ Day Celebration (5:12-6:39)</h3>
+        </div>
+      </a>
+    </div>
+
+    
+    <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/watch/?v=389861732024661" target="_blank">
+        <img src="9.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>Speech: RHS Brigada Eskwela 2020</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- media-appearance.html -->
+<section class="media-section">
+  <h2>Organized Events</h2>
+  <div class="media-gallery">
+    <div class="media-tile" style="--delay: 0s">
+      <a href="https://www.facebook.com/pccscbcollege/posts/pfbid02H8t8atCZr8LV76gDpiktBpqGQzcJM1NNwzXrQ4MiSy2C21gQuEM6TBGvTPiSFfdKl" target="_blank">
+        <img src="10.png" alt="College Night 2024" />
+        <div class="media-info">
+          <h3>PCC Educators’ Day 2024: trEnDUCATORS </h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.1s">
+      <a href="https://www.facebook.com/pccscbcollege/posts/pfbid021p8XKaAemx2odF4QSWVnQsAYzNiWpvCLgZNRWhq76E1JJjfztdWfGbDBgiJsBtqgl" target="_blank">
+        <img src="11.png" alt="RESIBO OSAEC Campaign" />
+        <div class="media-info">
+          <h3>PCC Class of 2024 Thanksgiving Dinner </h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.2s">
+      <a href="https://www.facebook.com/pccscbcollege/posts/pfbid0krM5ZB3TwyjB9Yk4FbjVrVK3Af2zLRmSe7qrbSnq71g3KGxWoabz1bXwPwWeuDozl" target="_blank">
+        <img src="12.png" alt="Press Freedom Celebration 2022" />
+        <div class="media-info">
+          <h3>CSCB Outreach Program</h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/pccscbcollege/posts/pfbid0o2NjK41PHiKtmATS71GkGpAXYEuEJKuLiEyUi5exioKS6yDyPhsFFZhy5uCYsV9Zl" target="_blank">
+        <img src="13.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>PCC Acquaintance Party 2024</h3>
+        </div>
+      </a>
+    </div>
+
+        <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/pccscbcollege/videos/1711643976444364" target="_blank">
+        <img src="14.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>PCC Intramurals 2025</h3>
+        </div>
+      </a>
+    </div>
+
+        <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/watch/?v=466811170544703 " target="_blank">
+        <img src="15.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>Mass Induction 2020</h3>
+        </div>
+      </a>
+    </div>
+
+            <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/watch/?v=1774745599338076 " target="_blank">
+        <img src="16.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>RHS Graduation Ball 2019</h3>
+        </div>
+      </a>
+    </div>
+
+            <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/therhssslg/videos/301915850538066 " target="_blank">
+        <img src="17.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>Rizalian’s Got Talent 2018</h3>
+        </div>
+      </a>
+    </div>
+
+            <div class="media-tile" style="--delay: 0.3s">
+      <a href="https://www.facebook.com/watch/?v=1764452280244484  " target="_blank">
+        <img src="18.png" alt="Intramurals 2025 Interview" />
+        <div class="media-info">
+          <h3>RHS Graduation Ball 2018</h3>
+        </div>
+      </a>
+    </div>
+    
+  </div>
+</section>
+
+  <!-- Typing Script -->
   <script>
-    const scrollContainer = document.getElementById('app');
-    const section1 = document.getElementById('section1');
-    const section2 = document.getElementById('section2');
-    const viewResumeBtn = document.getElementById('viewResumeBtn');
-    const toggleDarkBtn = document.getElementById('toggleDarkBtn');
-    const toggleIcon = document.getElementById('toggleIcon');
-    let isDark = false;
+  const tiles = document.querySelectorAll(".media-tile");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.1 });
 
-    scrollContainer.addEventListener('scroll', () => {
-      const scrollTop = scrollContainer.scrollTop;
-      const windowHeight = window.innerHeight;
-      const scrolledDown = scrollTop >= windowHeight / 2;
-
-      section1.classList.toggle('fade-out', scrolledDown);
-      section1.classList.toggle('fade-in', !scrolledDown);
-      section2.classList.toggle('fade-in', scrolledDown);
-      section2.classList.toggle('fade-out', !scrolledDown);
+  tiles.forEach(tile => observer.observe(tile));
+    // Animate ID in
+    window.addEventListener('load', () => {
+      document.querySelector('.virtual-id').classList.add('animate-in');
     });
 
-    viewResumeBtn.addEventListener('click', () => {
-      window.open('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '_blank');
-    });
+    // Typing effect
+    const aboutText = "I’m a Communications graduate with a passion for public service and storytelling, currently working as a Legislative Assistant in a city councilor’s office. I’ve spent the past few years immersed in civic leadership — representing offices in meetings and events, drafting committee reports, editing video and publication materials, and writing official communications. With a strong foundation in student leadership — as President of both my high school and college student governments — I’ve led campus-wide initiatives, organized events, advocated for student needs, and managed media content for social platforms. These experiences have sharpened my communication, public speaking, and content creation skills — all of which I’m now channeling into a future in broadcasting. I believe in the power of media to inform, connect, and move people — and I’m ready to bring my voice, energy, and experience to the screen and beyond.";
+    let index = 0;
 
-    toggleDarkBtn.addEventListener('click', () => {
-      isDark = !isDark;
-      scrollContainer.classList.toggle('dark', isDark);
-      toggleIcon.innerHTML = isDark
-        ? `<circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="yellow"/>
-           <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414m12.728 0l1.414 1.414M6.05 6.05L4.636 4.636" />`
-        : `<path d="M21 12.79A9 9 0 0112.21 3a7 7 0 000 14 9 9 0 018.79-4.21z" />`;
+    function typeWriter() {
+      if (index < aboutText.length) {
+        document.getElementById("typedText").innerHTML += aboutText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 5);
+      }
+    }
+
+    // Scroll trigger
+    window.addEventListener('scroll', () => {
+      const aboutSection = document.getElementById('about-me');
+      const position = aboutSection.getBoundingClientRect().top;
+      if (position < window.innerHeight * 0.9 && index === 0) {
+        typeWriter();
+      }
     });
   </script>
 </body>
